@@ -4,6 +4,8 @@
 /////////////////////////////////////////////////
 // BANKIST APP
 
+alert('user1 : js\npassword: 1111\n-----\nuser2: jd\npassword: 2222')
+
 // Data
 const account1 = {
   owner: 'Jonas Schmedtmann',
@@ -297,16 +299,23 @@ const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 const overAllBalance=accounts.flatMap(acc=>acc.movements).reduce((acc,curr)=>acc+curr,0)
 
 
-//return <0 A,B keep order does not sort
-//return >0 B<A Swich order does sort
-movements.sort((a,b)=>{
-  if(a>b){
-    return 1 //any positive number accending ==== keep order
-  }
-  if(a<b){
-    return -1 // any negative number  deccending ==== swich order 
-  }
 
+const random100=Array.from({length:100},(curr,i)=>Math.floor(Math.random()*100))
+console.log(random100);
+
+
+
+
+//converting ui to array with map 
+labelBalance.addEventListener('click',()=>{
+  const movementsUi=Array.from(document.querySelectorAll('.movements__value'),el=>Number(el.textContent.replace('€',''))
+  )
+  console.log(movementsUi);
+  
+  //convering ui to array with out map 
+  const movementsUi2=[...document.querySelectorAll('.movements__value')]
+  console.log(movementsUi2);
 })
 
-console.log(movements);
+
+
